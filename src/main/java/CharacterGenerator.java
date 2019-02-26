@@ -13,10 +13,9 @@ class CharacterGenerator {
 
 
     char randomIndexSelector(char[] array) {
-        int min = 0;
         int max = array.length;
 
-        int randomIndex = min + random.nextInt(max);
+        int randomIndex = random.nextInt(max);
         return array[randomIndex];
     }
 
