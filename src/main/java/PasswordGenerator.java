@@ -12,25 +12,25 @@ class PasswordGenerator extends CharacterGenerator {
     String generatePassword(int passwordLength, int numbers, int specialChars) {
 
         StringBuilder passwordStringBuilder = new StringBuilder();
-        List<Character> passwordArray = new ArrayList<>();
+        List<Character> selectedCharacters = new ArrayList<>();
 
         int charactersRemaining = passwordLength - (numbers + specialChars);
 
         for (int i = 0; i < numbers; i++) {
-            passwordArray.add(RandomIndexGenerator(getNumberCharArray()));
+            selectedCharacters.add(randomIndexSelector(getNumberCharArray()));
         }
 
         for (int i = 0; i < specialChars; i++) {
-            passwordArray.add(RandomIndexGenerator(getSpecialCharArray()));
+            selectedCharacters.add(randomIndexSelector(getSpecialCharArray()));
         }
 
         for (int i = 0; i < charactersRemaining; i++) {
-            passwordArray.add(RandomIndexGenerator(getAlphaCharArray()));
+            selectedCharacters.add(randomIndexSelector(getAlphaCharArray()));
         }
 
-        Collections.shuffle(passwordArray);
+        Collections.shuffle(selectedCharacters);
 
-        for (char i : passwordArray) {
+        for (char i : selectedCharacters) {
             passwordStringBuilder.append(i);
         }
 

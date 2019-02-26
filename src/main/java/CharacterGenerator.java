@@ -2,6 +2,8 @@ import java.util.Random;
 
 class CharacterGenerator {
 
+    private Random random = new Random();
+
     private char alphaCharArray[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
             'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
@@ -10,10 +12,9 @@ class CharacterGenerator {
     private char specialCharArray[] = {'£', '$', '!', '#', '@', '+', '-', '/', '*'};
 
 
-    char RandomIndexGenerator(char[] array) {
+    char randomIndexSelector(char[] array) {
         int min = 0;
         int max = array.length;
-        Random random = new Random();
 
         int randomIndex = min + random.nextInt(max);
         return array[randomIndex];
